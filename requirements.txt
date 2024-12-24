@@ -3,3 +3,4 @@ tensorflow
 numpy
 opencv-python
 pillow
+gunicorn==19.7.1
