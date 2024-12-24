@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Signal Recognizer</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #333;
+        }
+
+        /* Title section */
+        h1 {
+            font-size: 25px;
+            font-weight: 700;
+            text-align: center;
+            color: white;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+            font-family: 'Verdana', sans-serif;
+        }
+
+        /* Centered container */
+        .dialog-container {
+            background: rgba(255, 255, 255, 0.9); /* Slight transparency */
+            padding: 50px 60px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 500px;
+            /* width: 100%; */
+            backdrop-filter: blur(10px); /* Blur background */
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .dialog-container h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+            font-family: 'Georgia', serif;
+        }
+
+        /* Hidden file input */
+        input[type="file"] {
+            display: none;
+        }
+
+        /* Custom file input button */
+        .upload-button {
+            background: linear-gradient(135deg, #f9ddba, #f4b841); /* Elegant gold/beige gradient */
+            color: #333;
+            border: 2px solid #f4b841;
+            padding: 14px 35px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: inline-block;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Button hover effect */
+        .upload-button:hover {
+            background: linear-gradient(135deg, #f4b841, #f9ddba);
+            border-color: #d8a700;
+            color: white;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-button:active {
+            background: #d8a700;
+            border-color: #b78600;
+        }
+
+        /* Supported formats hint */
+        .supported-formats {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #555;
+            font-style: italic;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 480px) {
+            .dialog-container {
+                padding: 30px 40px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .upload-button {
+                font-size: 16px;
+                padding: 12px 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Traffic Signal Recognizer</h1>
+        <div class="dialog-container">
+            <h2>Upload an Image</h2>
+            <!-- Form to upload the image -->
+            <form action="/upload" method="post" enctype="multipart/form-data" id="upload-form">
+                <!-- Hidden file input -->
+                <input type="file" name="file" id="file" accept="image/png, image/jpeg, image/jpg" required onchange="submitForm()">
+                <!-- Custom Upload Button -->
+                <label class="upload-button" for="file">Choose Image</label>
+            </form>
+            <p class="supported-formats">Supported formats: PNG, JPG, JPEG</p>
+        </div>
+    </div>
+
+    <script>
+        // Automatically submits the form when a file is selected
+        function submitForm() {
+            document.getElementById('upload-form').submit();
+        }
+    </script>
+</body>
+</html>
